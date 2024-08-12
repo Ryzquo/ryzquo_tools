@@ -1,2 +1,6 @@
+
+# 日志
 logs/
-__pycache__/
+
+# 匹配所有目录下的__pycache__
+**/__pycache__/
