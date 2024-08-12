@@ -4,3 +4,5 @@ logs/
 
 # 匹配所有目录下的__pycache__
 **/__pycache__/
+# 忽略所有 .pyc 文件
+*.py[cod]
