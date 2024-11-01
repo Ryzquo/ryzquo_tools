@@ -10,6 +10,8 @@ from scipy import signal
 # 添加根目录
 sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
+import ryzquo_tools.math_tools as rmt
+
 
 def derivative(x):
     """
@@ -19,7 +21,7 @@ def derivative(x):
     :return:
     """
     coef = [-1, -2, 0, 2, 1]
-    return []
+    return rmt.conv_1d(x, kernel=coef)
 
 
 def bandpass_filter(data, fs, low=5, high=15):
