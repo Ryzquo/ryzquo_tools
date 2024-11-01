@@ -26,7 +26,7 @@ def conv_1d(x, kernel):
             temp = x[i:i+len_k]
         else:
             temp = np.concatenate((x[i:len(x)-1], x[:len_k-len(x)+1+i]))
-        result.append(-sum(temp*kernel))
+        result.append(sum(temp*kernel))
 
     return np.array(result[:len_x])
 
