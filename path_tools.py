@@ -80,18 +80,27 @@ def get_file_name(file_path: str):
     return file_name, file_extension
 
 
-def get_filepaths_without_extension(files_dir: str, file_format: str = None):
+def get_filepaths_without_extension(files_dir: str, file_format=None):
     """
     获取目录下所有指定格式的文件
     :param files_dir: 指定目录
     :param file_format: 指定格式
     :return:
     """
-    files = glob(join_path(files_dir, f"*.{file_format}"))
-    files = [path_format(file) for file in files]
-    # files = os.listdir(files_dir)
+    if not isinstance(file_format, list):
+        file_format = [file_format]
 
-    return files
+    all_file = []
+    for ff in file_format:
+        if '.' in ff:
+            files = glob(join_path(files_dir, ff))
+        else:
+            files = glob(join_path(files_dir, f"*.{ff}"))
+        files = [path_format(file) for file in files]
+        # files = os.listdir(files_dir)
+        all_file += files
+
+    return all_file
 
 
 if __name__ == '__main__':
